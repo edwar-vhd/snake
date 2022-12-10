@@ -76,7 +76,6 @@ class Snake{
                     y: this.body[0].y-1
                 });
             }
-            
             this.body.pop(); // Elimina el último valor
         }
         console.log(this.body);
