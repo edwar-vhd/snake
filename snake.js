@@ -31,7 +31,6 @@ class Snake{
                 if(keyCode[0] == 37){
                     if(!(this.moveX==0 && this.moveY==0)){
                         snake.moveX = -1;
-
                     }
                 }else{
                     snake.moveX = 1;
