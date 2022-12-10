@@ -1,4 +1,5 @@
 var canvas = document.getElementById("canvas");
+var keyCode = [];
 const ctx = canvas.getContext("2d");
 const mapSideParts = 31;
 
@@ -25,6 +26,25 @@ class Snake{
 
     // Metodos
     move(){
+        if(keyCode.length!=0){
+            if((keyCode[0] == 37 || keyCode[0] == 39) && snake.moveX==0){
+                if(keyCode[0] == 37){
+                    snake.moveX = -1;
+                }else{
+                    snake.moveX = 1;
+                }
+                snake.moveY = 0;
+            }else if((keyCode[0] == 38 || keyCode[0] == 40) && snake.moveY==0){
+                if(keyCode[0] == 38){
+                    snake.moveY = -1;
+                }else{
+                    snake.moveY = 1;
+                }
+                snake.moveX = 0;
+            }
+            keyCode.shift();
+        }
+
         if (this.moveX == 1){
             if(this.body[0].x>(mapSideParts-2)){
                 this.body.unshift({
@@ -78,7 +98,6 @@ class Snake{
             }
             this.body.pop(); // Elimina el último valor
         }
-        console.log(this.body);
     }
 
     // Getters and setters
@@ -130,22 +149,7 @@ function game(){
     snake.move();
 }
 
-window.addEventListener("keydown", (event) =>{
-    setTimeout(() => {
-        if((event.keyCode == 37 || event.keyCode == 39) && snake.moveX==0){
-            if(event.keyCode == 37){
-                snake.moveX = -1;
-            }else{
-                snake.moveX = 1;
-            }
-            snake.moveY = 0;
-        }else if((event.keyCode == 38 || event.keyCode == 40) && snake.moveY==0){
-            if(event.keyCode == 38){
-                snake.moveY = -1;
-            }else{
-                snake.moveY = 1;
-            }
-            snake.moveX = 0;
-        }
-    }, 1);
+window.addEventListener("keydown", (event) => {
+    keyCode.push(event.keyCode);
+    console.log(keyCode);
 });
