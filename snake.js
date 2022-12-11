@@ -154,12 +154,11 @@ function gameLoop(){
 function draw(){
     let mapSideLenght;
 
-    if(document.documentElement.getBoundingClientRect().width < document.documentElement.getBoundingClientRect().height){
+    if(document.documentElement.getBoundingClientRect().width < document.documentElement.getBoundingClientRect().height)
         mapSideLenght = document.documentElement.getBoundingClientRect().width - 120;
-
-    }else{
+    else
         mapSideLenght = document.documentElement.getBoundingClientRect().height - 120;
-    }
+    
     ctx.canvas.width = mapSideLenght;
     ctx.canvas.height = mapSideLenght;
 
@@ -216,12 +215,11 @@ function draw(){
 }
 
 function game(){
-    console.log(snake.isAlive);
-    if (snake.isAlive){
+    if (snake.isAlive)
         snake.move();
         snake.crash();
         eat();
-    }
+    
 }
 
 function eat(){
