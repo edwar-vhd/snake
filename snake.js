@@ -199,17 +199,17 @@ function draw(){
         ctx.shadowColor = "#FFFFFF";
         ctx.shadowBlur = squareSize/8;
 
-        ctx.font = "80px Arial";
+        ctx.font = mapSideLenght/7 + "px Arial";
         ctx.fillStyle = "#ffffff";
         ctx.textAlign = 'center';
         ctx.fillText("Game Over",mapSideLenght/2,mapSideLenght/2);
 
         animation++;
-        if(animation<30){
-            ctx.font = "20px Arial";
-            ctx.fillText("Press spacebar to continue...",mapSideLenght/2,mapSideLenght/2+30);
+        if(animation<40){
+            ctx.font = mapSideLenght/26 + "px Arial";
+            ctx.fillText("Press spacebar to continue...",mapSideLenght/2,mapSideLenght/2+(mapSideLenght*0.08));
         }
-        if (animation>=45){
+        if (animation>=60){
             animation=0;
         }
     }
